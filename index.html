@@ -20,9 +20,13 @@
     <script type="text/babel">
       // React code goes here
       var MyComponent = React.createClass({
+
+          getInitialState: function(){
+            return { count: 5, id: "none", worth: "zinc"}
+          },
           render: function(){
             return(
-              <h3>Create comp! {this.props.id} -- {this.props.worth}</h3>
+              <h3>Create comp! {this.props.id} -- {this.props.worth} =|{this.state.count}</h3>
             );
           }
 
