@@ -2,10 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>reactweb</title>
+    <script src="https://unpkg.com/react@15.6.0/dist/react.js"></script>
+
+    <script src="https://unpkg.com/react-dom@15.6.0/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <title>react-web</title>
+
   </head>
   <body>
     <p>hello reactweb</p>
+
+    <div id="mountpoint">Mount here</div>
+
+      <div id="otherpoint">Mount other place</div>
+
+    <script type="text/babel">
+      // React code goes here
+      var MyComponent = React.createClass({
+          render: function(){
+            return(
+              <h3>Create comp! {this.props.id} -- {this.props.worth}</h3>
+            );
+          }
+
+      });
+    </script>
+
+    <script type="text/jsx">
+
+    //ReactDOM.render(<h3>Hello first</h3>, document.getElementById('mountpoint') );
+    ReactDOM.render(<MyComponent id="ab55" worth="gold"/>, document.getElementById('otherpoint') );
+
+
+    </script>
   </body>
 </html>
