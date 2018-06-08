@@ -22,11 +22,31 @@
       var MyComponent = React.createClass({
 
           getInitialState: function(){
-            return { count: 5, id: "none", worth: "zinc"}
+            return { count: -3, id: "none", worth: "zinc"}
+          },
+          increment: function(){
+            console.log("count..=" +  this.state.count + ' worth=' +  this.props.worth ); //this.state.count );
+            if( this.props.worth == undefined){
+              this.setState({worth:'ore'});
+            }
+            this.state.count++;
+            this.setState({count: this.state.count } );
+            console.log("count..=" +  this.state.count + ' worth as props=' +  this.props.worth + ' worth as state=' + this.state.worth );
+            if(this.props.children != undefined){
+              console.log("children="+ this.props.children);
+            }else{
+              console.log("children="+ this.props.children);
+
+            }
           },
           render: function(){
             return(
-              <h3>Create comp! {this.props.id} -- {this.props.worth} =|{this.state.count}</h3>
+              <div className="my-component">
+                <h3>Comp! {this.props.id}--state={this.state.worth} props={this.props.worth} |count={this.state.count}^{this.props.children}</h3>
+
+                <button type="button" onClick={this.increment}>increment IT</button>
+              </div>
+
             );
           }
 
@@ -36,7 +56,16 @@
     <script type="text/jsx">
 
     //ReactDOM.render(<h3>Hello first</h3>, document.getElementById('mountpoint') );
-    ReactDOM.render(<MyComponent id="ab55" worth="gold"/>, document.getElementById('otherpoint') );
+    ReactDOM.render(
+      <div>
+      <MyComponent id="au55" worth="gold"/>
+      <MyComponent id="cu55" worth="copper"/>
+      <MyComponent id="default" >AB CD</MyComponent>
+      </div>, document.getElementById('otherpoint')
+
+
+
+    );
 
 
     </script>
